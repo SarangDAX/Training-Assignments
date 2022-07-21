@@ -1,0 +1,77 @@
+
+
+<head>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<header>
+    <h1 style="color:blue;text-align:center;"><a href="/">TO-DO APP</a></h1><br>
+</header>
+
+
+<body>
+    <table class="table">
+        <h2> Completed Tasks :</h2>
+
+        <thead style="background: grey; color: black;"class="thead-dark">
+          <tr> 
+            <th scope="col">Title</th>
+            <th scope="col">Note</th>
+            <th scope="col">Created_date</th>
+            <th scope="col">Status</th>
+
+          </tr>
+        </thead>
+        <br>
+
+        {% for task in tasks %}
+        {% if task.status %}
+        <tbody>
+          <tr>
+            <td>{{task.title}}</td>
+            <td>{{task.note}}</td>
+            <td>{{task.created_date}}</td>
+            <td>Done</td>
+            <td><button><a href="{% url 'del_task' task.id %}" >Delete</button></a></td>
+            <td><button><a href="{% url 'update_task' task.id %}" >Update</button></a></td>
+          </tr>
+        </tbody>
+        {% endif %}
+        {% endfor %}
+    </table><br>
+        
+    <table class="table">
+        <h2> Remaining Tasks :</h2><br>
+
+        <thead style="background: grey; color: black;" class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Note</th>
+            <th scope="col">Created_date</th>
+            <th scope="col">Status</th>
+
+          </tr>
+        </thead>
+
+        {% for task in tasks %}
+        {% if not task.status%}
+        <tbody>
+          <tr>
+            <td>{{task.title}}</td>
+            <td>{{task.note}}</td>
+            <td>{{task.created_date}}</td>
+            <td>Not Done</td>
+            <td><button><a href="{% url 'del_task' task.id %}" >Delete</button></a></td>
+            <td><button><a href="{% url 'update_task' task.id %}" >Update</button></a></td>
+          </tr>
+        </tbody>
+        {% endif %}
+        {% endfor %}
+    </table><br>
+
+    <h3 style="text-align:center"><a href="{% url 'add_task'%}"><button type="button">ADD TASK</button></a></h3>
+
+</button>
+</body>
+
