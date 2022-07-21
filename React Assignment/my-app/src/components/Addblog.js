@@ -1,7 +1,7 @@
 import React,{ useState } from "react"
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
-import Blog from "./Blog";
+import { Link } from "react-router-dom";
 
 const baseURL = 'https://qghcujpqbvrdfszremfe.supabase.co/rest/v1/blogs?select=*'
 
@@ -47,7 +47,7 @@ const Addblog=()=>{
                 <input onChange={(f)=>handle(f)} id="description" value={data.description} placeholder="description" type="text"></input>
                 <input onChange={(f)=>handle(f)} id="author" value={data.author} placeholder="author" type="text"></input>
                 <input onChange={(f)=>handle(f)} id="reading_time" value={data.reading_time} placeholder="reading_time" type="number"></input>
-                <Button onClick={addnote}>Add Blog </Button>
+                <Button onClick={addnote}><Link to="/">Add Blog</Link> </Button>
             </form>
     
             
