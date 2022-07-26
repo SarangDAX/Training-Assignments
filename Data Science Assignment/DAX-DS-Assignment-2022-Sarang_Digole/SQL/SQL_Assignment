@@ -1,0 +1,32 @@
+-- 1->
+
+SELECT CustomerId, FirstName, LastName, City FROM Customers AS c
+WHERE c.FirstName lIKE("N%") OR c.City IN ('Paris', 'Oslo');
+
+-- 2->
+SELECT TrackId, Name, Composer, UnitPrice FROM Tracks AS t
+WHERE t.UnitPrice BETWEEN 0.50 AND 1.00 AND t.Composer NOT LIKE("%T%");
+
+-- 3->
+SELECT InvoiceDate, SUM(Total), AVG(Total) FROM Invoices
+GROUP BY InvoiceDate
+HAVING InvoiceDate BETWEEN '2012-06-01 00:00:00' AND '2012-06-30 23:59:59';
+
+-- 4->
+SELECT TrackID, sum(Quantity) FROM invoice_items
+GROUP BY TrackId 
+ORDER BY sum(Quantity) DESC;
+
+-- 5->
+SELECT a.ArtistId, a.Name FROM artists AS a
+LEFT JOIN albums AS ab ON a.ArtistId = ab.ArtistId
+LEFT JOIN tracks AS t ON t.AlbumId = ab.AlbumId
+LEFT JOIN playlist_track AS pt on pt.TrackId = t.TrackId
+WHERE pt.TrackId IS NULL;
+
+-- 6->
+SELECT DISTINCT a.AlbumId, a.Title, count(pt.PlaylistId) AS Count_In_Playlists FROM playlist_track AS pt
+INNER JOIN Tracks AS t ON pt.TrackId = t.TrackId
+INNER JOIN Albums AS a ON a.AlbumId = t.AlbumId
+GROUP BY a.albumId, a.Title
+HAVING Count_In_Playlists > 10;
