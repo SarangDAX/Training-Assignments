@@ -1,0 +1,43 @@
+PS C:\Users\sdigol\Desktop\Projects\cpp> g++ a.cpp                           
+PS C:\Users\sdigol\Desktop\Projects\cpp> .\a.exe sample_input.in             
+sharma         rohit          j              bunty     555  waked               Pune           maharashtra    411025
+kohli          virat          d              sanju     1003 hadapsar            Pune           maharashtra    411024
+shetty         pramod         f              guddu     786  aundh               Pune           maharashtra    411023
+yadav          sachin         n              golu      120  baner               Pune           maharashtra    411022
+PS C:\Users\sdigol\Desktop\Projects\cpp> .\a.exe sample_input.in envelope
+---------------------------------
+Envolope Format :
+---------------------------------
+ritesh patel
+2103 swargate
+Pune maharashtra 41102
+sachin yadav
+120 baner
+pramod shetty
+786 aundh
+Pune maharashtra 41102
+virat kohli
+1003 hadapsar
+Pune maharashtra 41102
+rohit sharma
+555 waked
+Pune maharashtra 41102
+PS C:\Users\sdigol\Desktop\Projects\cpp> .\a.exe sample_input.in fixed_length
+---------------------------------
+Fixed Format :
+---------------------------------
+ritesh patel                   2103 swargate             Pune maharashtra 41102
+sachin yadav                   120 baner                 Pune maharashtra 41102
+pramod shetty                  786 aundh                 Pune maharashtra 41102
+virat kohli                    1003 hadapsar             Pune maharashtra 41102
+rohit sharma                   555 waked                 Pune maharashtra 41102
+
+PS C:\Users\sdigol\Desktop\Projects\cpp> .\a.exe sample_input.in csv
+---------------------------------
+Fixed Format With CSV :
+---------------------------------
+ritesh patel,2103 swargate,Pune maharashtra 41102,
+sachin yadav,120 baner,Pune maharashtra 41102,
+pramod shetty,786 aundh,Pune maharashtra 41102,
+virat kohli,1003 hadapsar,Pune maharashtra 41102,
+rohit sharma,555 waked,Pune maharashtra 41102,
